@@ -187,4 +187,51 @@ class StudentController extends Controller
     return redirect("/student_grader");
 
    }
+
+public function research(){
+    return view("student_research");
+   }
+
+   public function researchPost(Request $request){
+
+    $request->validate([
+        'topic' =>'required',
+    
+
+      ]);
+      $sid = request()->session()->get('id');
+      $sname = request()->session()->get('name');
+      $topic = $request->topic;
+      $researchin = new Research;
+
+      $researchin->save;
+
+      return redirect('/student_research');
+   }
+
+
+   public function counselling(){
+    return view("student_counselling");
+   }
+
+   public function materials(){
+    return view("student_course_materials");
+    }
+
+   public function taCourse(){
+      $ta_data = TA_List::all();
+      return view('student_ta_course', ['ta_data'=>$ta_data]) ;
+
+      //return view('');
+     }
+
+  public function graderCourse(){
+    $grader_data = Grader_List::all();
+    return view('student_grader_course', ['grader_data'=>$grader_data]) ;
+
+    //return view('');
+    }
+  
+}
+
 }
