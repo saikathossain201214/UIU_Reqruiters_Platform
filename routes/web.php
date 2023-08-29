@@ -1,9 +1,16 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminloginController;
+use App\Http\Controllers\Adminlogin2Controller;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\RequestController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
