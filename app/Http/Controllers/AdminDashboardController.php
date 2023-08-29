@@ -117,3 +117,88 @@ class AdminDashboardController extends Controller
 
         //return view('');
     }
+
+function ta_apply_data_show(){
+        $credit = '1';
+        $situation = '0';
+        
+        $ta_apply_data = Apply::where('credit', '=', $credit)
+                              ->where('situation', '=', $situation)
+                              ->get();
+                              
+        return view('admin_ta_request', ['ta_apply_data' => $ta_apply_data]);
+    }
+    
+
+    function grader_apply_data_show(){
+        $credit = '3';
+        $situation = '0';
+        $grader_apply_data = Apply::where('credit','=',$credit)
+                                   ->where('situation', '=', $situation)
+                                   ->get();
+        return view('admin_grader_request', ['grader_apply_data'=>$grader_apply_data]) ;
+
+        //return view('');
+    }
+
+    public function updateSituationta($id)
+    {
+        $apply = Apply::findOrFail($id);
+        $apply->situation = 1;
+        $apply->save();
+
+        return redirect()->back()->with('success', 'Situation updated successfully.');
+    }
+
+    public function updateSituationgrader($id)
+    {
+        $apply = Apply::findOrFail($id);
+        $apply->situation = 1;
+        $apply->save();
+
+        return redirect()->back()->with('success', 'Situation updated successfully.');
+    }
+
+    public function showAdminTA()
+    {
+        $credit = 1;
+        $situation = 2;
+
+        $ta_data = Apply::where('credit', '=', $credit)
+                        ->where('situation', '=', $situation)
+                        ->select('sname', 'sid', 'cname', 'cid', 'tname', 'section')
+                        ->get();
+
+        return view('admin_ta', ['ta_data' => $ta_data]);
+    }
+
+    public function showAdminGrader()
+    {
+        $credit = 3;
+        $situation = 2;
+
+        $grader_data = Apply::where('credit', '=', $credit)
+                        ->where('situation', '=', $situation)
+                        ->select('sname', 'sid', 'cname', 'cid', 'tname', 'section')
+                        ->get();
+
+        return view('admin_grader', ['grader_data' => $grader_data]);
+    }
+
+    function ta_list(){
+        $ta_data = TA_List::all();
+        return view('admin_ta', ['ta_data'=>$ta_data]) ;
+
+        //return view('');
+    }
+
+    function grader_list(){
+        $grader_data = Grader_List::all();
+        return view('admin_grader', ['grader_data'=>$grader_data]) ;
+
+        //return view('');
+    }
+
+
+    
+}
