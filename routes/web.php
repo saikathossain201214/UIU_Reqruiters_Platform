@@ -68,3 +68,17 @@ Route::post('/adminlogin2', function (Request $request) {
     // If login fails, redirect back to the login page with an error message
     return redirect('/adminlogin2')->with('error', 'Invalid credentials.');
 });
+
+Route::get("/adminlogin2",[AdminDashboardController::class,"login"]);
+Route::get("/admin_dashboard",[AdminDashboardController::class,"index"]);
+Route::get("/admin_dashboard",[AdminDashboardController::class,"total_count"]);
+//Route::get("/admin_dashboard",[AdminDashboardController::class,"total_student"]);
+Route::get("/admin_student",[AdminDashboardController::class,"student"]);
+Route::get("/admin_teacher",[AdminDashboardController::class,"teacher"]);
+Route::post("/student_data_insert",[AdminDashboardController::class,"student_data"]);
+Route::post("/teacher_data_insert",[AdminDashboardController::class,"teacher_data"]);
+Route::get("/admin_teacher",[AdminDashboardController::class,"teacher_data_show"]);
+Route::get("/admin_student",[AdminDashboardController::class,"student_data_show"]);
+Route::get("/admin_allcourse",[AdminDashboardController::class,"allcourse"]);
+Route::get("/admin_course_details",[AdminDashboardController::class,"course_details"]);
+Route::get("/admin_course_name",[AdminDashboardController::class,"course_name"]);
