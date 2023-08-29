@@ -28,6 +28,17 @@ Route::get('/student_profile', function () {
 Route::get("/applyGbtn/{id}",[StudentController::class,"applyGrader"]);
 Route::get("/deleteGbtn/{id}",[StudentController::class,"deleteGrader"]);
 
+Route::get("/student_counselling",[StudentController::class,"counselling"]);
+Route::get("/student_course_materials",[StudentController::class,"materials"]);
+Route::get('/student_update_info', [StudentController::class, 'showUpdateForm']);
+Route::post("/student_update_info",[StudentController::class,"updateInfo"]);
+Route::get("/student_grader_course",[StudentController::class,"graderCourse"]);
+Route::get("/student_grader",[StudentController::class,"courseFetchGrader"]);
+Route::get("/student_research",[StudentController::class,"researchPost"]);
+Route::get("/student_research",[StudentController::class,"research"]);
+Route::get("/student_course_materials",[StudentController::class,"showPdfList"]);
+Route::get("/student_course_materials",[StudentController::class,"uploadPdf"]);
+
 
 
 
@@ -82,3 +93,5 @@ Route::get("/admin_student",[AdminDashboardController::class,"student_data_show"
 Route::get("/admin_allcourse",[AdminDashboardController::class,"allcourse"]);
 Route::get("/admin_course_details",[AdminDashboardController::class,"course_details"]);
 Route::get("/admin_course_name",[AdminDashboardController::class,"course_name"]);
+
+
