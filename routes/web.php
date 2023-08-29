@@ -27,3 +27,4 @@ Route::get('/student_profile', function () {
 });
 Route::get("/applyGbtn/{id}",[StudentController::class,"applyGrader"]);
 Route::get("/deleteGbtn/{id}",[StudentController::class,"deleteGrader"]);
+
