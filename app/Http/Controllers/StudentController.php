@@ -234,4 +234,3 @@ public function research(){
   
 }
 
-}
