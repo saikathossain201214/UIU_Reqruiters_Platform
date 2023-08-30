@@ -102,3 +102,39 @@ Route::get("/admin_course_details",[AdminDashboardController::class,"course_deta
 Route::get("/admin_course_name",[AdminDashboardController::class,"course_name"]);
 
 
+
+
+Route::get("/teacher_login",[TeacherController::class,"loginShow"]);
+Route::post("/teacher_login",[TeacherController::class,"login"]);
+Route::get("/teacher_home",[TeacherController::class,"home"]);
+Route::get("/teacher_course_view/{id}/{section}",[TeacherController::class,"course_view"]);
+Route::get("/teacher_ta_request",[TeacherController::class,"ta_request"]);
+Route::get("/teacher_ta_request", [TeacherController::class, "showTeacherTARequest"]);
+Route::get("/teacher_grader_request",[TeacherController::class,"grader_request"]);
+Route::get("/teacher_grader_request", [TeacherController::class, "showTeacherGraderRequest"]);
+Route::get("/DELETEbtn/{id}",[TeacherController::class,"deleteTeacherTa"]);
+Route::get("/deletebtn/{id}",[TeacherController::class,"deleteTeacherGrader"]);
+Route::get("/Addbtn/{id}",[TeacherController::class,"addTA"]);
+Route::get("/addbtn/{id}",[TeacherController::class,"addGrader"]);
+
+Route::get("/teacher_request", [TeacherController::class, "teacherRequestForm"]);
+Route::get("/teacher_request", [TeacherController::class, "storeTeacherRequest"]);
+
+
+//Route::get("/teacher_home",[TeacherController::class,"courseFetch"]);
+//Route::get("/teacher_home",[TeacherController::class,"courseShow"]);
+
+
+Route::get('/student_course_materials', [FileUploadController::class, 'index']);
+Route::post('/student_course_materials', [FileUploadController::class, 'upload']);
+Route::get('/view-course/{subject}', [FileUploadController::class, 'viewCourse'])->name('student_course_materials_view');
+
+
+
+
+Route::get("/teacher_request", [RequestController::class, "teacherRequestForm"]);
+Route::post("/teacher_request", [RequestController::class, "storeTeacherRequest"]);
+Route::get('/admin_dashboard', [RequestController::class, "adminRequestTeacher"]);
+Route::post("admin_dashboard/accept/{id}", [RequestController::class, "acceptRequest"]);
+
+
